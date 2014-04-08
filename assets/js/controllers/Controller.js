@@ -23,7 +23,7 @@ var Controller = new Class({
 		|	Osmek API key goes here!
 		|
 		*/
-		osmek_api_key: 'pG4HVsZNJtab9j7LD6WgY2ABOqQlS0IC',
+		osmek_api_key: '',
 		
 		
 		/* 
@@ -31,7 +31,7 @@ var Controller = new Class({
 		|	Osmek Bin ID (or slug) goes here!
 		|
 		*/
-		osmek_bin_id: '8318'
+		osmek_bin_id: ''
 		
 	},
 		
@@ -68,6 +68,18 @@ var Controller = new Class({
 			}
 		});
 		
+		
+		if( ! this.options.osmek_api_key || ! this.options.osmek_bin_id)
+		{
+			$('content').set('html', '<h2>API key or Bin ID not found</h2>'
+				+'<ol>'
+				+'<li>Get an Osmek account - osmek.com</li>'
+				+'<li>Create a Multi-Entry bin called "Pages".</li>'
+				+'<li>Create a Drop-down custom field in that bin called "Parent". The keyword should be set to parent_id and the values should be set to "fill values from another content bin." with the "Pages" bin selected.</li>'
+				+'<li>Paste your API key and the Pages bin ID into assets/js/controllers/Controller.js</li>'
+				+'</ol>');
+			return false;
+		}
 		
 		$$('.logo').setStyle('cursor', 'pointer').addEvent('click', function(e){
 			e.stop();
