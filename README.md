@@ -1,4 +1,4 @@
-work-hub
+project-hub
 ========
 
 A simple Javascript only website for displaying hierarchical pages with Osmek (osmek.com).
